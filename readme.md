@@ -1,3 +1,5 @@
+[![Build and Test](https://github.com/vements/client-cs/actions/workflows/build-test.yaml/badge.svg)](https://github.com/vements/client-cs/actions/workflows/build-test.yaml)
+
 ## Vements Client Library for C#
 
 The Vements Client Library for C# is a C# library for accessing the Vements API.  It also includes a command line tool that can be used to interact with the API in scripts or in a terminal.
