@@ -1,0 +1,14 @@
+name: Build and Test
+
+on: push
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Test Image
+        run: docker build -t client-cs:latest -f ./dockerfile.test .
+      - name: Run Test Image
+        run: docker run --rm client-cs:latest

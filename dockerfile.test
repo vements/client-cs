@@ -1,0 +1,26 @@
+# FROM vements/substitute-server:latest
+FROM vements/substitute-server:latest AS sub
+
+FROM --platform=$BUILDPLATFORM alpine:3.18 AS build
+ARG BUILDPLATFORM
+
+
+RUN apk add --no-cache \
+    dotnet7-sdk \
+    python3 \
+    py3-pip 
+
+WORKDIR /app
+COPY --from=sub /app/subserver /app/subserver
+COPY --from=sub /app/requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
+
+COPY Vements/API /app/Vements/API
+COPY Vements/CLI /app/Vements/CLI
+COPY Vements/Test /app/Vements/Test
+
+ENV PORT=9000
+
+ENTRYPOINT python -m subserver & \
+     cd /app/Vements/Test && \
+     dotnet test
