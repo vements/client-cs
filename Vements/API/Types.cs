@@ -807,7 +807,6 @@ namespace Vements.API
         [property: JsonPropertyName("user_id")] string userId,
         [property: JsonPropertyName("email")] string email,
         [property: JsonPropertyName("display")] string display,
-        [property: JsonPropertyName("db")] string db,
         [property: JsonPropertyName("created")] DateTime created,
         [property: JsonPropertyName("updated")] DateTime updated
     );
