@@ -18,12 +18,14 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ** ${{github.workflow}} **
+            ${{github.workflow}}
 
-            `repository: ${{ github.repository }}`
+            repository: ${{ github.repository }}
 
-            `user: ${{ github.actor }}`
+            user: ${{ github.actor }}
 
-            `commit: ${{ github.event.head_commit.message }}`
-            
+            commit: ${{ github.event.head_commit.message }}
+
+            link: https://github.com/${{ github.repository }}
+
             link: https://github.com/${{ github.repository }}/commit/${{github.sha}}
