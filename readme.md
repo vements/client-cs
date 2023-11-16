@@ -11,10 +11,12 @@ See the [C# API docs](https://vements.io/docs/clients/csharp/) for more informat
 
 ### Installation
 
+The package is available on [NuGet](https://www.nuget.org/packages/Vements.API/).
+
 To install the Vements Client Library for C#, use the following command:
 
 ```bash
-$ dotnet add package vements
+$ dotnet add package Vements.API --version 0.0.3
 ```
 
 ### Usage 
