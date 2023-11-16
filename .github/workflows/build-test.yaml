@@ -1,7 +1,9 @@
 name: Build and Test
 
-on: push
-
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -19,10 +21,10 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Execute dotnet
-        run: cd Vements/API && dotnet build -c Release
+        run: cd Vements/API && dotnet build -c Release /property:Version="$(echo $GITHUB_REF_NAME | sed 's/v//')"
 
       - name: Publish API Package
-        run: pwd && ls -l && cd Vements/API && dotnet nuget push bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        run: cd Vements/API && dotnet nuget push bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
 
