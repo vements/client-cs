@@ -1,9 +1,7 @@
-# FROM vements/substitute-server:latest
 FROM vements/substitute-server:latest AS sub
 
 FROM --platform=$BUILDPLATFORM alpine:3.18 AS build
 ARG BUILDPLATFORM
-
 
 RUN apk add --no-cache \
     dotnet7-sdk \
