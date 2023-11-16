@@ -22,7 +22,7 @@ jobs:
         run: cd Vements/API && dotnet build -c Release
 
       - name: Publish API Package
-        run: cd Vements/API && dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        run: pwd && ls -l && cd Vements/API && dotnet nuget push bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
 
