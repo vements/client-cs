@@ -18,9 +18,12 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            WORKFLOW: ${{github.workflow}}
-            REPO: ${{ github.repository }}
-            USER: ${{ github.actor }}
-            COMMIT MESSAGE: ${{ github.event.head_commit.message }}
-            COMMIT SHA: ${{ github.sha }}
-            MORE:
+            <strong> ${{github.workflow}} </strong>
+
+            <code> repository: ${{ github.repository }} </code>
+
+            <code> user: ${{ github.actor }} </code>
+
+            <code> commit: ${{ github.event.head_commit.message }} </code>
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
