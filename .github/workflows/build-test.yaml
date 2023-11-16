@@ -12,6 +12,22 @@ jobs:
         run: docker build -t client-cs:latest -f ./dockerfile.test .
       - name: Run Test Image
         run: docker run --rm client-cs:latest
+
+      - name: Build API Package
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Execute dotnet
+        run: cd Vements/API && dotnet build -c Release
+
+      - name: Publish API Package
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+        run: cd Vements/API && dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+
       - name: Send Telegram Notification
         uses: appleboy/telegram-action@master
         with:

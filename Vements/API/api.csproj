@@ -5,10 +5,22 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <PackageId>Vements.API</PackageId>
+    <Version>0.0.3</Version>
+    <Authors>Vements Support, support@vements.io</Authors>
+    <Company>Monster Street Systems LLC</Company>
+    <Product>vements.io</Product>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Title>Vements API</Title>
+    <PackageDescription>Achievements and Scoreboards for Everyone</PackageDescription>
+    <PackageTags>achievements;achievement;scoreboards;scoreboard;REST;</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="110.2.0" />
+    <None Include="../../readme.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
