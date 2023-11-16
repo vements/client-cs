@@ -12,3 +12,8 @@ jobs:
         run: docker build -t client-cs:latest -f ./dockerfile.test .
       - name: Run Test Image
         run: docker run --rm client-cs:latest
+      - name: send default message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
