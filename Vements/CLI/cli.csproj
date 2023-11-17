@@ -35,7 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\API\api.csproj" />
     <None Include="../../readme.cli.md" Pack="true" PackagePath="/" />
-    <None Include="./icon.png" Pack="true" PackagePath="/" />
+    <None Include="icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

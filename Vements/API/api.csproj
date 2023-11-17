@@ -23,7 +23,7 @@
     <RepositoryBranch>main</RepositoryBranch>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    
+
     <PackageDescription>Achievements and Scoreboards for Everyone</PackageDescription>
     <PackageTags>achievements;achievement;scoreboards;scoreboard;REST;</PackageTags>
   </PropertyGroup>
@@ -31,7 +31,7 @@
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <None Include="../../readme.md" Pack="true" PackagePath="/" />
-    <None Include="../../icon.png" Pack="true" PackagePath="/" />    
+    <None Include="icon.png" Pack="true" PackagePath="/" />    
   </ItemGroup>
 
 </Project>
