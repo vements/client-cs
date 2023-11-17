@@ -7,20 +7,23 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
+    <Title>Vements CLI</Title>
     <PackageId>Vements.CLI</PackageId>
     <Version>0.0.0</Version>
     <Authors>Vements Team;Contributors</Authors>
     <Company>Monster Street Systems LLC</Company>
     <Copyright>Copyright © 2023</Copyright>
     <Product>vements.io</Product>
+
     <PackageReadmeFile>readme.cli.md</PackageReadmeFile>
     <PackageUrl>https://vements.io/</PackageUrl>
     <RepositoryUrl>https://github.com/vements/client-cs</RepositoryUrl>
+
     <RepositoryType>git</RepositoryType>
     <RepositoryBranch>main</RepositoryBranch>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <Title>Vements CLI</Title>
+
     <PackageDescription>Achievements and Scoreboards for Everyone</PackageDescription>
     <PackageTags>achievements;achievement;scoreboards;scoreboard;REST;</PackageTags>
   </PropertyGroup>
@@ -32,7 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\API\api.csproj" />
     <None Include="../../readme.cli.md" Pack="true" PackagePath="/" />
-
+    <None Include="./icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
