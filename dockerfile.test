@@ -18,6 +18,7 @@ COPY Vements/CLI /app/Vements/CLI
 COPY Vements/Test /app/Vements/Test
 COPY readme.md /app/readme.md
 COPY readme.cli.md /app/readme.cli.md
+COPY icon.png /app/icon.png
 
 ENV PORT=9000
 
