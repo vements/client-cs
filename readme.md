@@ -7,7 +7,7 @@ The Vements Client Library for C# is a C# library for accessing the Vements API.
 
 ### Documentation
 
-See the [C# API docs](https://vements.io/docs/clients/csharp/) for more information on how to use this library.
+See the [Getting Started Guide](https://vements.io/docs/guides/getting-started/) for more information on how to use this library.
 
 ### Installation
 
