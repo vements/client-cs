@@ -92,15 +92,25 @@ namespace Vements.API
             return null;
         }
 
-        public AchievementListResponse? List(string projectId, int limit, int offset)
+        public AchievementListResponse? List(string projectId, int? limit, int? offset)
         {
             var path = "achievement";
 
             var request = new RestRequest(path);
+
             request.AddQueryParameter("project_id", projectId);
+
             limit = limit == 0 ? 100 : limit;
-            request.AddQueryParameter("limit", limit);
-            request.AddQueryParameter("offset", offset);
+
+            if (limit != null)
+            {
+                request.AddQueryParameter("limit", limit.Value);
+            }
+
+            if (offset != null)
+            {
+                request.AddQueryParameter("offset", offset.Value);
+            }
 
             try
             {
@@ -284,15 +294,25 @@ namespace Vements.API
             return null;
         }
 
-        public ParticipantListResponse? List(string projectId, int limit, int offset)
+        public ParticipantListResponse? List(string projectId, int? limit, int? offset)
         {
             var path = "participant";
 
             var request = new RestRequest(path);
+
             request.AddQueryParameter("project_id", projectId);
+
             limit = limit == 0 ? 100 : limit;
-            request.AddQueryParameter("limit", limit);
-            request.AddQueryParameter("offset", offset);
+
+            if (limit != null)
+            {
+                request.AddQueryParameter("limit", limit.Value);
+            }
+
+            if (offset != null)
+            {
+                request.AddQueryParameter("offset", offset.Value);
+            }
 
             try
             {
@@ -452,14 +472,22 @@ namespace Vements.API
             return null;
         }
 
-        public ScoreboardScoresResponse? Scores(string scoreboardId, DateTime from, DateTime to)
+        public ScoreboardScoresResponse? Scores(string scoreboardId, DateTime? from, DateTime? to)
         {
             var path = "scoreboard/{scoreboard_id}/scores";
             path = path.Replace("{scoreboard_id}", scoreboardId);
 
             var request = new RestRequest(path);
-            request.AddQueryParameter("from", from);
-            request.AddQueryParameter("to", to);
+
+            if (from != null)
+            {
+                request.AddQueryParameter("from", from.Value);
+            }
+
+            if (to != null)
+            {
+                request.AddQueryParameter("to", to.Value);
+            }
 
             try
             {
@@ -479,15 +507,25 @@ namespace Vements.API
             return null;
         }
 
-        public ScoreboardListResponse? List(string projectId, int limit, int offset)
+        public ScoreboardListResponse? List(string projectId, int? limit, int? offset)
         {
             var path = "scoreboard";
 
             var request = new RestRequest(path);
+
             request.AddQueryParameter("project_id", projectId);
+
             limit = limit == 0 ? 100 : limit;
-            request.AddQueryParameter("limit", limit);
-            request.AddQueryParameter("offset", offset);
+
+            if (limit != null)
+            {
+                request.AddQueryParameter("limit", limit.Value);
+            }
+
+            if (offset != null)
+            {
+                request.AddQueryParameter("offset", offset.Value);
+            }
 
             try
             {
