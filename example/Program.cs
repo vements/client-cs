@@ -8,6 +8,9 @@ class Program
 
     static void Main(string[] args)
     {
+        Random random = new Random();
+        var player = random.Next(1, 10000);
+
         // Create a new client, which encapsulates the API connection.
         // You can do this once and reuse the object.
         var client = new Client(ApiKey);
@@ -17,11 +20,11 @@ class Program
         var participantCreateResponse = client.participant.Create(
             new ParticipantCreateRequest(
                 projectId: ProjectId,
-                display: "Player 1",
+                display: $"Example Player {player}",
                 // This is the ID of the player in your application.  
                 // It can be any string you want, but it must be unique 
                 // within the project.
-                externalId: "player-1",
+                externalId: $"example player {player}",
                 // This is the URL of the player's avatar image.  It can be any URL you want,
                 // including a data URI.
                 image: null,
@@ -35,7 +38,7 @@ class Program
 
         // Create scores for this new participant and scoreboard.  
         // You can do this in your application as the player plays the game.
-        Random random = new Random();
+
         int i = 0;
         while (i < 5)
         {
@@ -52,11 +55,7 @@ class Program
         }
 
         // Read the scoreboard and show it.
-        var scoreboardResponse = client.scoreboard.Scores(ScoreboardId, from: DateTime.Now.AddHours(-24), to: DateTime.Now);
+        var scoreboardResponse = client.scoreboard.Scores(ScoreboardId, null, null);
         Console.WriteLine("Scoreboard: " + scoreboardResponse?.scoreboardScores);
-
-        // Teardown: delete the participant.  You may or may not need to do this in your app.  We do it here to be tidy.
-        var participantDeleteResponse = client.participant.Delete(participant?.participantId);
-        Console.WriteLine("Participant Deleted: " + participantDeleteResponse);
     }
 }
