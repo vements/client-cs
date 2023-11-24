@@ -55,11 +55,11 @@ class Program
         }
 
         // Read the scoreboard and show it.
-        var scoreboardResponse = client.scoreboard.Scores(ScoreboardId, null, null);
+        var scoreboardResponse = client.scoreboard.Scores(ScoreboardId);
         var scores = scoreboardResponse?.scoreboardScores;
 
         foreach (var score in scores) {
-            Console.WriteLine($"{score.rank} {score.participant.display} {score.total}");
+            Console.WriteLine($"Rank: {score.rank} Player: {score.participant.display} Total: {score.total}");
         }
     }
 }
