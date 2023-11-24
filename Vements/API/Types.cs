@@ -42,7 +42,6 @@ namespace Vements.API
         {
             var path = "achievement/{achievement_id}/leaderboard";
             path = path.Replace("{achievement_id}", achievementId);
-
             var request = new RestRequest(path);
 
             try
@@ -70,8 +69,8 @@ namespace Vements.API
         {
             var path = "achievement/{achievement_id}/progress";
             path = path.Replace("{achievement_id}", achievementId);
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -92,21 +91,21 @@ namespace Vements.API
             return null;
         }
 
-        public AchievementListResponse? List(string projectId, int? limit, int? offset)
+        public AchievementListResponse? List(
+            string projectId,
+            int? limit = null,
+            int? offset = null
+        )
         {
             var path = "achievement";
-
             var request = new RestRequest(path);
 
             request.AddQueryParameter("project_id", projectId);
-
             limit = limit == 0 ? 100 : limit;
-
             if (limit != null)
             {
                 request.AddQueryParameter("limit", limit.Value);
             }
-
             if (offset != null)
             {
                 request.AddQueryParameter("offset", offset.Value);
@@ -133,8 +132,8 @@ namespace Vements.API
         public AchievementCreateResponse? Create(AchievementCreateRequest payload)
         {
             var path = "achievement";
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -159,7 +158,6 @@ namespace Vements.API
         {
             var path = "achievement/{achievement_id}";
             path = path.Replace("{achievement_id}", achievementId);
-
             var request = new RestRequest(path);
 
             try
@@ -187,8 +185,8 @@ namespace Vements.API
         {
             var path = "achievement/{achievement_id}";
             path = path.Replace("{achievement_id}", achievementId);
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -213,7 +211,6 @@ namespace Vements.API
         {
             var path = "achievement/{achievement_id}";
             path = path.Replace("{achievement_id}", achievementId);
-
             var request = new RestRequest(path);
 
             try
@@ -248,7 +245,6 @@ namespace Vements.API
         {
             var path = "participant/{participant_id}/progress";
             path = path.Replace("{participant_id}", participantId);
-
             var request = new RestRequest(path);
 
             try
@@ -273,7 +269,6 @@ namespace Vements.API
         {
             var path = "participant/{participant_id}/scores";
             path = path.Replace("{participant_id}", participantId);
-
             var request = new RestRequest(path);
 
             try
@@ -294,21 +289,21 @@ namespace Vements.API
             return null;
         }
 
-        public ParticipantListResponse? List(string projectId, int? limit, int? offset)
+        public ParticipantListResponse? List(
+            string projectId,
+            int? limit = null,
+            int? offset = null
+        )
         {
             var path = "participant";
-
             var request = new RestRequest(path);
 
             request.AddQueryParameter("project_id", projectId);
-
             limit = limit == 0 ? 100 : limit;
-
             if (limit != null)
             {
                 request.AddQueryParameter("limit", limit.Value);
             }
-
             if (offset != null)
             {
                 request.AddQueryParameter("offset", offset.Value);
@@ -335,8 +330,8 @@ namespace Vements.API
         public ParticipantCreateResponse? Create(ParticipantCreateRequest payload)
         {
             var path = "participant";
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -361,7 +356,6 @@ namespace Vements.API
         {
             var path = "participant/{participant_id}";
             path = path.Replace("{participant_id}", participantId);
-
             var request = new RestRequest(path);
 
             try
@@ -389,8 +383,8 @@ namespace Vements.API
         {
             var path = "participant/{participant_id}";
             path = path.Replace("{participant_id}", participantId);
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -415,7 +409,6 @@ namespace Vements.API
         {
             var path = "participant/{participant_id}";
             path = path.Replace("{participant_id}", participantId);
-
             var request = new RestRequest(path);
 
             try
@@ -450,8 +443,8 @@ namespace Vements.API
         {
             var path = "scoreboard/{scoreboard_id}/score";
             path = path.Replace("{scoreboard_id}", scoreboardId);
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -472,18 +465,20 @@ namespace Vements.API
             return null;
         }
 
-        public ScoreboardScoresResponse? Scores(string scoreboardId, DateTime? from, DateTime? to)
+        public ScoreboardScoresResponse? Scores(
+            string scoreboardId,
+            DateTime? from = null,
+            DateTime? to = null
+        )
         {
             var path = "scoreboard/{scoreboard_id}/scores";
             path = path.Replace("{scoreboard_id}", scoreboardId);
-
             var request = new RestRequest(path);
 
             if (from != null)
             {
                 request.AddQueryParameter("from", from.Value);
             }
-
             if (to != null)
             {
                 request.AddQueryParameter("to", to.Value);
@@ -507,21 +502,17 @@ namespace Vements.API
             return null;
         }
 
-        public ScoreboardListResponse? List(string projectId, int? limit, int? offset)
+        public ScoreboardListResponse? List(string projectId, int? limit = null, int? offset = null)
         {
             var path = "scoreboard";
-
             var request = new RestRequest(path);
 
             request.AddQueryParameter("project_id", projectId);
-
             limit = limit == 0 ? 100 : limit;
-
             if (limit != null)
             {
                 request.AddQueryParameter("limit", limit.Value);
             }
-
             if (offset != null)
             {
                 request.AddQueryParameter("offset", offset.Value);
@@ -548,8 +539,8 @@ namespace Vements.API
         public ScoreboardCreateResponse? Create(ScoreboardCreateRequest payload)
         {
             var path = "scoreboard";
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -574,7 +565,6 @@ namespace Vements.API
         {
             var path = "scoreboard/{scoreboard_id}";
             path = path.Replace("{scoreboard_id}", scoreboardId);
-
             var request = new RestRequest(path);
 
             try
@@ -602,8 +592,8 @@ namespace Vements.API
         {
             var path = "scoreboard/{scoreboard_id}";
             path = path.Replace("{scoreboard_id}", scoreboardId);
-
             var request = new RestRequest(path);
+
             request.AddJsonBody(JsonSerializer.Serialize(payload), contentType: "application/json");
 
             try
@@ -628,7 +618,6 @@ namespace Vements.API
         {
             var path = "scoreboard/{scoreboard_id}";
             path = path.Replace("{scoreboard_id}", scoreboardId);
-
             var request = new RestRequest(path);
 
             try
