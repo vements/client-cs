@@ -52,7 +52,6 @@ namespace Vements.CLI
         }
     }
 
-    // base command class
     public class Command
     {
         [Option("--api-key", Description = "API Key")]
