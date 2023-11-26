@@ -6,6 +6,7 @@ class Program
     static string ProjectId = "";
     static string ScoreboardId = "";
 
+
     static void Main(string[] args)
     {
         Random random = new Random();
@@ -17,7 +18,7 @@ class Program
 
         // Create a participant.  You can do this in your application as needed, 
         // for example, when a new player joins the game.
-        var participantCreateResponse = client.participant.Create(
+        var participant = client.participant.Create(
             new ParticipantCreateRequest(
                 projectId: ProjectId,
                 display: $"Example Player {player}",
@@ -33,7 +34,6 @@ class Program
         );
 
 
-        var participant = participantCreateResponse?.insertParticipantOne;
         Console.WriteLine("Participant Created: " + participant?.participantId);
 
         // Create scores for this new participant and scoreboard.  
@@ -55,9 +55,7 @@ class Program
         }
 
         // Read the scoreboard and show it.
-        var scoreboardResponse = client.scoreboard.Scores(ScoreboardId);
-        var scores = scoreboardResponse?.scoreboardScores;
-
+        var scores = client.scoreboard.Scores(ScoreboardId);
         foreach (var score in scores) {
             Console.WriteLine($"Rank: {score.rank} Player: {score.participant.display} Total: {score.total}");
         }
